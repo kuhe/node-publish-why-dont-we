@@ -1,0 +1,30 @@
+{
+  "name": "@kuhe-org/publish-why-dont-we",
+  "version": "2.0.0",
+  "description": "conditionally publish/tag but do not consider a pre-existing version/tag as an exception",
+  "main": "main.js",
+  "private": false,
+  "scripts": {
+    "test": "node main.js"
+  },
+  "bin": {
+    "publish-why-dont-we": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuhe/node-publish-why-dont-we.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kuhe/node-publish-why-dont-we/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "homepage": "https://github.com/kuhe/node-publish-why-dont-we#readme",
+  "dependencies": {
+    "node-clapi": "^1.0.3"
+  },
+  "devDependencies": {}
+}
