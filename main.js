@@ -25,12 +25,19 @@ function log(...args) {
     const git = new clapi('git');
     const npm = new clapi('npm');
 
-    console.log('Publish why don\'t we...');
+    console.log('Publish why don\'t we use the latest local tag...');
 
     const pkg = require(path.join(process.cwd(), 'package.json'));
-    const prospectiveVersion = pkg.version;
 
-    console.log('Prospective version', pkg.name, pkg.version);
+    let prospectiveVersion;
+
+    if (process.argv[2] === '--use-latest-local-tag') {
+        prospectiveVersion = (await git.describe('--tags', '--abbrev=0'))[0];
+    } else {
+        prospectiveVersion = pkg.version;
+    }
+
+    console.log('Prospective version', pkg.name, prospectiveVersion);
 
     try {
         var tags = await git['ls-remote']('--tags', 'origin', prospectiveVersion);

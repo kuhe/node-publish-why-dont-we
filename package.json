@@ -1,6 +1,6 @@
 {
   "name": "@kuhe-org/publish-why-dont-we",
-  "version": "2.1.0",
+  "version": "2.4.0",
   "description": "conditionally publish/tag but do not consider a pre-existing version/tag as an exception",
   "main": "main.js",
   "private": false,
@@ -8,7 +8,8 @@
     "test": "node main.js"
   },
   "bin": {
-    "publish-why-dont-we": "./main.js"
+    "publish-why-dont-we": "./main.js",
+    "publish-why-dont-we-use-the-latest-tag": "./main.js --use-latest-local-tag"
   },
   "repository": {
     "type": "git",
