@@ -31,7 +31,7 @@ function log(...args) {
 
     let prospectiveVersion;
 
-    if (process.argv[2] === '--use-latest-local-tag') {
+    if (Array.from(process.argv).indexOf('--use-latest-local-tag') > -1) {
         log('Using latest local tag');
         prospectiveVersion = (await git.describe('--tags', '--abbrev=0'))[0];
     } else {
