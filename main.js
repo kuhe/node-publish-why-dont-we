@@ -25,15 +25,17 @@ function log(...args) {
     const git = new clapi('git');
     const npm = new clapi('npm');
 
-    console.log('Publish why don\'t we use the latest local tag...');
+    console.log('Publish why don\'t we...');
 
     const pkg = require(path.join(process.cwd(), 'package.json'));
 
     let prospectiveVersion;
 
     if (process.argv[2] === '--use-latest-local-tag') {
+        log('Using latest local tag');
         prospectiveVersion = (await git.describe('--tags', '--abbrev=0'))[0];
     } else {
+        log('Using package.json version');
         prospectiveVersion = pkg.version;
     }
 
