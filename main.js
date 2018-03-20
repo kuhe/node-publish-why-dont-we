@@ -73,6 +73,7 @@ function log(...args) {
     } else {
         log('Publishing new version.');
         try {
+            log(await npm.version('--no-git-tag-version', '--allow-same-version', prospectiveVersion));
             log(await npm.get('registry'));
             log(await npm.publish('--access', 'public'));
         } catch (e) {
