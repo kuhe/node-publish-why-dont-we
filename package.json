@@ -1,6 +1,6 @@
 {
   "name": "@kuhe-org/publish-why-dont-we",
-  "version": "3.10.0",
+  "version": "3.11.0",
   "description": "conditionally publish/tag but do not consider a pre-existing version/tag as an exception",
   "main": "main.js",
   "private": false,

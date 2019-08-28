@@ -56,7 +56,13 @@ class Version {
 
     if (Array.from(process.argv).indexOf('--use-latest-local-tag') > -1) {
         log('Using latest local tag');
-        prospectiveVersion = (await git.describe('--tags', '--abbrev=0'))[0];
+        try {
+            prospectiveVersion = (await git.describe('--tags', '--abbrev=0'))[0];
+        } catch (e) {
+            console.error(e);
+            console.log('Error while querying latest local tag, using package json version');
+            prospectiveVersion = pkg.version;
+        }
     } else {
         log('Using package.json version');
         prospectiveVersion = pkg.version;
@@ -110,4 +116,10 @@ class Version {
         }
     }
 
-})();
+})().catch(e => {
+    if (e instanceof Array) {
+        console.error(e.join('\n'))
+    } else {
+        console.error(e);
+    }
+});
